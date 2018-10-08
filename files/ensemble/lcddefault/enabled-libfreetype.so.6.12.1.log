@@ -1,0 +1,6 @@
+'/home/john/lib/amd64/libfreetype.so.6' -> 'enabled/libfreetype.so.6.12.1'
+Loading FontFactory com.sun.javafx.font.freetype.FTFactory
+Subpixel: enabled
+Freetype2 Loaded (version 2.6.1)
+LCD support Enabled
+Time spent accessing fontconfig=32ms.
