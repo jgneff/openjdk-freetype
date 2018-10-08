@@ -36,7 +36,7 @@ So now we have two variants of the FreeType library: one that requires a functio
 
 #### The Request
 
-This is a request for OpenJDK to reduce the color fringes in subpixel rendering by adding the following two lines to `freetypeScaler.c`.
+This is a request for OpenJDK to reduce the color fringes in subpixel rendering by [adding the following two lines](https://github.com/jgneff/openjdk-freetype/commit/0adb0e2fe6905a1a6efdd30011d32911f17c6331 "Set the default FreeType LCD filter") to `freetypeScaler.c`.
 
 **java.desktop/share/native/libfontmanager/freetypeScaler.c**
 
