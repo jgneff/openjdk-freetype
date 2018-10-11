@@ -2,6 +2,8 @@
 
 Below are my test results using five versions of FreeType built first with the ClearType methods disabled (the default) and then again with them enabled. I ran all 10 libraries under OpenJDK 11, first with OpenJFX failing to set the LCD filter and then again after adding [the fix to set the default LCD filter](https://github.com/javafxports/openjdk-jfx/pull/235 "JDK-8188810: Fonts are blurry on Ubuntu 16.04 and Debian 9").
 
+For the results of these same tests with the latest OpenJDK, see the [Full Test Results](README.md#full-test-results "OpenJDK FreeType Font Fix") in the README page of this repository.
+
 ## Before the Fix
 
 | Year | FreeType | Library | Included With    | ClearType Off | ClearType On   |

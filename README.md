@@ -135,6 +135,8 @@ For background information on LCD filters see [Section 2.2.1](http://rastertrage
 
 Below are my test results using five versions of FreeType built first with the ClearType methods disabled (the default) and then again with them enabled. I ran all 10 libraries under OpenJDK 12, first with no LCD filter and then again after adding the code to set the default LCD filter.
 
+For the results of these same tests with the latest OpenJFX, see the [JavaFX page](javafx.md "OpenJFX FreeType Tests") of this repository.
+
 #### No LCD Filter
 
 | Year | FreeType | Library | Included With    | ClearType Off | ClearType On   |
