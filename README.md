@@ -2,7 +2,13 @@
 
 This repository is a NetBeans project for comparing the text rendering of various builds of OpenJDK and FreeType. The project contains a simple Java Swing application called [FontDemo](src/org/status6/FontDemo.java "FontDemo.java") that displays two text areas with the [Source Code Pro](https://github.com/adobe-fonts/source-code-pro "Monospaced font family for user interface and coding environments") font in TTF and OTF formats (the latest non-variable download).
 
-The goal of this repository was to report the severe color fringes in text rendered by OpenJDK on Ubuntu, and the problem is now being tracked by [JDK-8212071](https://bugs.openjdk.java.net/browse/JDK-8212071 "Need to set the FreeType LCD Filter to reduce fringing."). Please see this repository’s [Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for the original Request for Enhancement and all of my test results.
+The goal of this repository was to report the severe color fringes in text rendered by OpenJDK on Ubuntu, and the problem is now being tracked by [JDK-8212071](https://bugs.openjdk.java.net/browse/JDK-8212071 "Need to set the FreeType LCD Filter to reduce fringing."). Please see this repository’s [Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for the original [Request for Enhancement](https://github.com/jgneff/openjdk-freetype/wiki/OpenJDK-FreeType-Font-Fix "OpenJDK FreeType Font Fix") and all of the test results.
+
+For example, the following two screenshots show the FontDemo application running on Ubuntu 18.04.1 LTS with two builds of OpenJDK: one that does not set the LCD filter (left), and the other that sets the default LCD filter (right).
+
+| ![Text rendered without an LCD filter. Screenshot.](images/01-system-lcdnone.png) | ![Text rendered with the default LCD filter. Screenshot.](images/02-system-lcddefault.png) |
+|:-------------:|:------------------:|
+| No LCD filter | Default LCD filter |
 
 ## Prerequisites
 
@@ -29,9 +35,11 @@ I built 14 editions of the FreeType library. I built each of the following FreeT
 
 I automated the tests with the Bash script [fontdemo.sh](bin/fontdemo.sh "Runs the FontDemo Swing application with various FreeType libraries"). The script loops over the builds of OpenJDK that use the system library and assumes they are installed in `$HOME/opt`. The FreeType libraries are expected to be found under `$HOME/lib/amd64/default` or `$HOME/lib/amd64/enabled`, depending on whether the ClearType methods are disabled (the default) or enabled. The script runs the Java Swing application 28 times covering seven FreeType versions, built with and without the ClearType methods enabled, and two OpenJDK builds, with and without setting the LCD filter.
 
-See this repository’s [Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for all of my test results.
+See this repository’s [Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for all of the test results.
 
 ## Built With
+
+The FontDemo application is built with NetBeans 9 running under OpenJDK 11.
 
 * [Apache NetBeans IDE 9.0](https://netbeans.apache.org/ "Welcome to Apache NetBeans")
 * [OpenJDK 11](https://jdk.java.net/11/ "JDK 11 General-Availability Release")
