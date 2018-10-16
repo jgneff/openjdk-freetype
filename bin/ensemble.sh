@@ -7,20 +7,34 @@ set -o errexit
 export JDK_HOME=$HOME/opt/jdk-11
 export LD_LIBRARY_PATH=$HOME/lib/amd64:$JDK_HOME/lib:/lib:/usr/lib
 
-# Two builds of OpenJFX 12:
-#   One fails to set the LCD filter (lcdnone)
-#   One sets the default LCD filter (lcddefault)
-#module_path=$HOME/lib/lcdnone
-module_path=$HOME/lib/lcddefault
+# Sets of OpenJFX 12 modules
+#   lcdnone - fails to set the LCD filter
+#   lcddefault - sets the default LCD filter
+lcdfilter="lcdnone lcddefault"
 
-# FreeType built with the default and with ClearType methods enabled
+# Sets of FreeType libraries
+#   default - ClearType methods disabled (the library default)
+#   enabled - ClearType methods enabled
 versions="default enabled"
 
-# Libraries of FreeType 2.3.5, 2.5.2, 2.6.1, 2.8.1, and 2.9.1
-libraries="libfreetype.so.6.3.16 libfreetype.so.6.11.1 \
-    libfreetype.so.6.12.1 libfreetype.so.6.15.0 libfreetype.so.6.16.1"
+# FreeType library versions
+#   2.3.5  (6.3.16) in Ubuntu  8.04 LTS
+#   2.3.11 (6.3.22) in Ubuntu 10.04 LTS
+#   2.4.8  (6.8.0)  in Ubuntu 12.04 LTS
+#   2.5.2  (6.11.1) in Ubuntu 14.04 LTS
+#   2.6.1  (6.12.1) in Ubuntu 16.04 LTS
+#   2.8.1  (6.15.0) in Ubuntu 18.04 LTS
+#   2.9.1  (6.16.1) in OpenJDK 12 (bundled)
+libraries="\
+    libfreetype.so.6.3.16 \
+    libfreetype.so.6.3.22 \
+    libfreetype.so.6.8.0 \
+    libfreetype.so.6.11.1 \
+    libfreetype.so.6.12.1 \
+    libfreetype.so.6.15.0 \
+    libfreetype.so.6.16.1"
 
-ln_options="--force --relative --symbolic --verbose"
+lnopts="--force --relative --symbolic --verbose"
 libdir=$HOME/lib/amd64
 libname=libfreetype.so.6
 appfile=$HOME/opt/jdk1.8.0_181/demo/javafx_samples/Ensemble8.jar
@@ -28,16 +42,19 @@ appfile=$HOME/opt/jdk1.8.0_181/demo/javafx_samples/Ensemble8.jar
 # Removes the unversioned linker name of the shared library.
 rm -f $libdir/libfreetype.so
 
-# Loops through all builds and versions of the FreeType libraries.
-for ver in $versions; do
-    for lib in $libraries; do
-        logfile=$ver-$lib.log
-        printf "FreeType library = $ver-$lib\n"
-        ln $ln_options $libdir/$ver/$lib $libdir/$libname >> $logfile
-        $JDK_HOME/bin/java -Dprism.debugfonts=true \
-            -Djava.library.path=$LD_LIBRARY_PATH \
-            --module-path $module_path \
-            --add-modules javafx.controls \
-            -jar $appfile 2>&1 | head -n 5 >> $logfile
+# Loops through all FreeType libraries for each set of OpenJFX modules.
+for lcd in $lcdfilter; do
+    for ver in $versions; do
+        for lib in $libraries; do
+            testname=$lcd-$ver-$lib
+            printf "Test name = $testname\n"
+            logfile=$testname.log
+            ln $lnopts $libdir/$ver/$lib $libdir/$libname >> $logfile
+            $JDK_HOME/bin/java -Dprism.debugfonts=true \
+                -Djava.library.path=$LD_LIBRARY_PATH \
+                --module-path $HOME/lib/$lcd \
+                --add-modules javafx.controls \
+                -jar $appfile 2>&1 | head -n 5 >> $logfile
+        done
     done
 done
