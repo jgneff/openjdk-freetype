@@ -1,4 +1,4 @@
-The Request for Enhancement described below is now tracked in the JDK Bug System by [JDK-8212071](https://bugs.openjdk.java.net/browse/JDK-8212071 "Need to set the FreeType LCD Filter to reduce fringing."). Please see the repository [Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for detailed test results of both OpenJDK (Java Swing) and OpenJFX (JavaFX) with different versions of the FreeType library.
+The Request for Enhancement described below is now tracked in the JDK Bug System by [JDK-8212071](https://bugs.openjdk.java.net/browse/JDK-8212071 "Need to set the FreeType LCD Filter to reduce fringing."). See the repository [Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for more information about this repository, including detailed test results of OpenJDK (Java Swing) and OpenJFX (JavaFX) with different versions of the FreeType library.
 
 ## Report Classification
 
@@ -82,9 +82,7 @@ The color fringes are more visible in the images below, cropped from the TrueTyp
 
 #### Bundled FreeType Library
 
-In this case, setting the LCD filter does nothing. The screenshots below show the FreeType Harmony rendering without setting the LCD filter on the left (lcdnone), and after adding the change to set the filter on the right (lcddefault). The ClearType configuration macro is not defined in the OpenJDK build of FreeType, so the function to set the filter returns `FT_Err_Unimplemented_Feature` (7) when called and does nothing.
-
-The two images are **identical**.
+In this case, setting the LCD filter does nothing. The screenshots below show the FreeType Harmony rendering without setting the LCD filter on the left (lcdnone), and after adding the change to set the filter on the right (lcddefault). The ClearType configuration macro is not defined in the OpenJDK build of FreeType, so the function to set the filter returns `FT_Err_Unimplemented_Feature` (7) when called and does nothing. The two images are **identical**.
 
 | ![Text rendered without an LCD filter. Screenshot.](images/03-bundled-lcdnone.png) | ![Text rendered with the default LCD filter. Screenshot.](images/04-bundled-lcddefault.png) |
 |:-------------------------:|:---------------------------:|
