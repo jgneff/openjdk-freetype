@@ -1,4 +1,4 @@
-The Request for Enhancement described below is now tracked in the JDK Bug System by [JDK-8212071](https://bugs.openjdk.java.net/browse/JDK-8212071 "Need to set the FreeType LCD Filter to reduce fringing."). See the repository [Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for more information about this repository, including detailed test results of OpenJDK (Java Swing) and OpenJFX (JavaFX) with different versions of the FreeType library.
+This Request for Enhancement is now tracked in the JDK Bug System by [JDK-8212071](https://bugs.openjdk.java.net/browse/JDK-8212071 "Need to set the FreeType LCD Filter to reduce fringing."). Please see [the Wiki](https://github.com/jgneff/openjdk-freetype/wiki "Home") for more information about this repository and detailed test results of OpenJDK (Java Swing) and OpenJFX (JavaFX) with different versions of the FreeType library.
 
 ## Report Classification
 
