@@ -8,6 +8,7 @@ This repository describes an error in the OpenJDK font rendering on Ubuntu and o
 * **2018-10-11:** Helped create Java bug report [JDK-8212071](https://bugs.openjdk.java.net/browse/JDK-8212071 "Java Bug System"), “Need to set the FreeType LCD Filter to reduce fringing.”
 * **2018-10-16:** Provided the fix in [OpenJDK 12](https://jdk.java.net/12/ "JDK 12 Release-Candidate Builds") build 17 or later.
 * **2019-02-07:** Created Ubuntu bug report [Bug #1815119](https://bugs.launchpad.net/ubuntu/+source/openjdk-lts/+bug/1815119 "Ubuntu openjdk-lts package"), “Backport JDK-8212071 font fix to OpenJDK 11.”
+* **2019-03-19:** The [JDK 12 General-Availability Release](https://jdk.java.net/12/ "JDK 12 General-Availability Release") is published and includes this fix.
 
 ## Report Classification
 
