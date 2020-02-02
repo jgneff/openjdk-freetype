@@ -9,8 +9,13 @@ This repository describes an error in the OpenJDK font rendering on Ubuntu and o
 * **2018-10-16:** Provided the fix, available in [OpenJDK 12](https://jdk.java.net/12/ "JDK 12 Release-Candidate Builds") build 17 or later.
 * **2019-02-07:** Created Ubuntu bug report [Bug #1815119](https://bugs.launchpad.net/ubuntu/+source/openjdk-lts/+bug/1815119 "Ubuntu openjdk-lts package"), “Backport JDK-8212071 font fix to OpenJDK 11.”
 * **2019-03-19:** The [JDK 12 General-Availability Release](https://jdk.java.net/12/ "JDK 12 General-Availability Release") is published and includes this fix.
-* **2019-09-23:** The fix is backported to OpenJDK 11.0.6 with [JDK-8231359](https://bugs.openjdk.java.net/browse/JDK-8231359), scheduled for January 14, 2020.
+* **2019-09-23:** The fix is backported to Oracle JDK 11.0.6 with [JDK-8231359](https://bugs.openjdk.java.net/browse/JDK-8231359), scheduled for January 14, 2020.
 * **2019-10-17:** Marked Ubuntu bug report [Bug #1815119](https://bugs.launchpad.net/ubuntu/+source/openjdk-lts/+bug/1815119) as "Fix Committed."
+* **2019-10-30:** The fix is backported to OpenJDK 11.0.6 with [JDK-8233221](https://bugs.openjdk.java.net/browse/JDK-8233221).
+* **2019-10-31:** The fix is backported to OpenJDK 8 Update 242 with [JDK-8233329](https://bugs.openjdk.java.net/browse/JDK-8233329).
+* **2020-01-14**: Oracle JDK 11.0.6 [is available](https://www.oracle.com/technetwork/java/javase/11-0-6-oracle-relnotes-5813175.html) with the fix.
+* **2020-01-15**: OpenJDK 11.0.6 is available on [Ubuntu 18.04 LTS](https://changelogs.ubuntu.com/changelogs/pool/main/o/openjdk-lts/openjdk-lts_11.0.6+10-1ubuntu1~18.04.1/changelog) with the fix.
+* **2020-01-17**: OpenJDK 8 Update 242 is available on [Ubuntu 16.04 LTS](https://changelogs.ubuntu.com/changelogs/pool/main/o/openjdk-8/openjdk-8_8u242-b08-0ubuntu3~16.04/changelog) and [Ubuntu 18.04 LTS](https://changelogs.ubuntu.com/changelogs/pool/universe/o/openjdk-8/openjdk-8_8u242-b08-0ubuntu3~18.04/changelog) with the fix.
 
 ## Report Classification
 
